@@ -1,7 +1,13 @@
-## Put comments here that give an overall description of what your
-## functions do
+## This file contains two R functions that together calculate the 
+## inverse of a matrix. It is assumed the matrix submitted to the
+## first function is invertible. 
 
-## Write a short comment describing this function
+
+
+## This function creates and returns a "closure" for a matrix
+## and it's inverse, which is assumed to exist. The closure is
+## a list of functions for working with the matrix and its
+## inverse.
 
 makeCacheMatrix <- function(x = matrix()) {
   inv <- NULL
@@ -16,10 +22,14 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## This function returns the inverse of a matrix (it is
+## assumed the inverse exists). If the inverse has not previously
+## been calculated, then it is calculated, cached, and returned.
+## Otherwise, the cached value is returned without any
+## further calculation.
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+  ## Return a matrix that is the inverse of 'x'
   inv <- x$getInv()
   if(!is.null(inv)) {
     message("getting cached data")
